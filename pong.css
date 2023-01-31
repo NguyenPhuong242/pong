@@ -1,0 +1,38 @@
+body {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin: 0px;
+}
+.ball img{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 64px;
+    height: 64px;
+    transform: translate(-50%, -50%);
+}
+.paddleL img{
+    position: fixed;
+    rotate: 90deg;
+    left: 86%;
+    width: 192px;
+    height: 24px;
+}
+.paddleR img{
+    position: fixed;
+    rotate: 90deg;
+    right: 86%;
+    width: 192px;
+    height: 24px;
+}
+canvas {
+    background-color: #F08080;
+    width: 600px;
+    height: 400px;
+    position: absolute;
+    top: 20%;
+    left: 20%;
+}
