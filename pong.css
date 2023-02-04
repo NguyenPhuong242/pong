@@ -7,20 +7,27 @@ body {
     margin: 0px;
 }
 
+.score{
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .ball img{
-    position: absolute;
+    position: fixed;
     width: 64px;
     height: 64px;
 }
 .paddleL img{
-    position: absolute;
-    left: 99%;
+    position: fixed;
+    left: 0;
     width: 24px;
     height: 192px;
 }
 .paddleR img{
-    position: absolute;
-    right: 99%;
+    position: fixed;
+    right :0;
     width: 24px;
     height: 192px;
 }
