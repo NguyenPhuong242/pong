@@ -55,6 +55,11 @@ function place_objects(objects) {
 
 function update() {
     
+    let pad1 = document.getElementById("pad1");
+    let pad1Rect = pad1.getBoundingClientRect();
+    let pad2 = document.getElementById("pad2");
+    let pad2Rect = pad2.getBoundingClientRect();
+
     if (ball.x <= 0 || ball.x > document.body.getBoundingClientRect().width - 64) {
         
         if(ball.x <= 0){
@@ -71,25 +76,32 @@ function update() {
         ball.vy = -ball.vy;
     }
 
-    let pad1 = document.getElementById("pad1");
-    let pad1Rect = pad1.getBoundingClientRect();
-
-    if (ball.x <= pad1Rect.right &&
-        ball.x >= pad1Rect.left &&
-        ball.y >= pad1Rect.top &&
-        ball.y <= pad1Rect.bottom) {
+    if (ball.x < pad1Rect.right &&
+        ball.x > pad1Rect.left &&
+        ball.y > pad1Rect.top &&
+        ball.y < pad1Rect.bottom &&
+        ball.vx < 0) {
 
         ball.vx = -ball.vx;
+        console.log(ball.x + " "+ball.y+ " "+ball.vx +" "+ball.vy);
+    }
+    else{
+        ball.vx= ball.vx;
+        console.log(ball.x + " "+ball.y+ " "+ball.vx +" "+ball.vy);
     }
 
-    let pad2 = document.getElementById("pad2");
-    let pad2Rect = pad2.getBoundingClientRect();
 
-    if (ball.x + ballWidth <= pad2Rect.right &&
-        ball.x + ballWidth >= pad2Rect.left &&
-        ball.y >= pad2Rect.top &&
-        ball.y <= pad2Rect.bottom) {
+    if (ball.x + ballWidth < pad2Rect.right &&
+        ball.x + ballWidth > pad2Rect.left &&
+        ball.y > pad2Rect.top &&
+        ball.y < pad2Rect.bottom &&
+        ball.vx > 0) { 
         ball.vx = -ball.vx;
+        console.log(ball.x + " "+ball.y+ " "+ball.vx +" "+ball.vy);
+    }
+    else{
+        ball.vx = ball.vx;
+        console.log(ball.x + " "+ball.y+ " "+ball.vx +" "+ball.vy);
     }
 
     ball.x += ball.vx;
@@ -144,7 +156,7 @@ function init() {
         place_objects([paddleL, paddleR]);
     });
 
-    setInterval(update, 10);
+    setInterval(update, 100);
 }
 
 
